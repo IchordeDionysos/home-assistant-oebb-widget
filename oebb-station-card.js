@@ -9,7 +9,7 @@ class OebbStationCard extends HTMLElement {
       // 2. Create the container
       const card = document.createElement('ha-card');
       this.content = document.createElement('div');
-      this.content.style.padding = '32px';
+      this.content.style.padding = '0px';
       this.content.style.height = config.height || '400px'; // Allow user to set height
       card.appendChild(this.content);
       this.appendChild(card);
@@ -34,7 +34,7 @@ class OebbStationCard extends HTMLElement {
         <html lang="de">
         <head>
             <meta charset="utf-8">
-            <style>body { margin: 0; background: transparent; }</style>
+            <style>body { margin: 16px 0; background: transparent; }</style>
             <script src="https://fahrplan.oebb.at/webapp/staticfiles/hafas-widget-core.1.0.0.js?language=de_DE"></script>
         </head>
         <body>
