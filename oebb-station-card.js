@@ -38,7 +38,7 @@ class OebbStationCard extends HTMLElement {
             <script src="https://fahrplan.oebb.at/webapp/staticfiles/hafas-widget-core.1.0.0.js?language=de_DE"></script>
         </head>
         <body>
-            <div data-hfs-widget="true" 
+            ${config.widget || `<div data-hfs-widget="true" 
                  data-hfs-widget-cfg-colorscheme="light" 
                  data-hfs-widget-sq="true" 
                  data-hfs-widget-sq-displaymode="results" 
@@ -48,7 +48,7 @@ class OebbStationCard extends HTMLElement {
                  data-hfs-widget-sq-locationname="${config.station_name || 'Innsbruck Südring'}" 
                  data-hfs-widget-sq-nowmode="true" 
                  data-hfs-widget-sq-enquiry="true">
-            </div>
+            </div>`}
         </body>
         </html>
       `.replace(/'/g, "&apos;"); // Escape quotes for safety
