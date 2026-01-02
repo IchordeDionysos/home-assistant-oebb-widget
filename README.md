@@ -30,5 +30,9 @@ You need to first get station information from ÖBB.
 
 ```yaml
 type: custom:oebb-station-card
-widget: "<div data-hfs-widget="true" [... your widget configuration ...]></div>"
+widget: <div data-hfs-widget="true" [... your widget configuration ...]></div>
+hide_background: true
+grid_options: # Optional, use this for a dashboard with only a single ÖBB widget.
+  columns: full
+  rows: 8
 ```
