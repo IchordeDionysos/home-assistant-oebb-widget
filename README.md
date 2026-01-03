@@ -1,6 +1,7 @@
-# Home Assistant - ÖBB Station Departure Board
+# Home Assistant - ÖBB Station Departure Board / Trip Planner
 
-A custom card for Home Assistant to display ÖBB departure times for a specific station.
+A custom card for Home Assistant to display ÖBB Scotty widget to show departures for a specific station or a trip planner.  
+The card allows you to configure the widget flexibly to your needs via the official ÖBB widget generator (see installation intrstructions below).
 
 ## Installation via HACS
 1. Go to HACS.
@@ -11,12 +12,12 @@ A custom card for Home Assistant to display ÖBB departure times for a specific 
 6. Find the new card in the list and click **Download**.
 
 ## Usage
-You need to first get station information from ÖBB.
+You need to first create the widget via the ÖBB configurator.
 
-### Configure departure board settings
+### Configure the widget: Example for a departure board
 
 1. Go to: https://fahrplan.oebb.at/webapp/widgetgenerator.html
-2. De-select Trip planner & Select schedules. (You should now see a widget preview prompting you for a single station).
+2. De-select "Trip Planner" & select "Departures". (You should now see a widget preview prompting you for a single station).
 3. Select the language you want the widget to have, then continue to the next step.
 4. Select the "Monitor" display mode, then continue to the next step.
 5. Select the station you want departures for and optionally adjust the advanced settings, then continue to the next step.
@@ -29,7 +30,7 @@ You need to first get station information from ÖBB.
 3. Copy the following configuration into the text field (for widget copy use the generated widget configuration from the previous section).
 
 ```yaml
-type: custom:oebb-station-card
+type: custom:oebb-card
 widget: <div data-hfs-widget="true" [... your widget configuration ...]></div>
 hide_background: true
 grid_options: # Optional, use this for a dashboard with only a single ÖBB widget.
