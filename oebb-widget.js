@@ -22,12 +22,33 @@ class OebbCard extends HTMLElement {
     }
 
     _getHtmlTemplate(config) {
+      const marginTop = config.hide_branding ? "0" : "16px";
+      let styles = `body { margin: ${marginTop} 0 16px 0; padding: 0; background: transparent; }`;
+
+      if (config.hide_caption) styles += " .lyr_sqCaption { display: none !important; }";
+      if (config.hide_stop_list_explanation) styles += " .lyr_sqStopListExplanation { display: none !important; }";
+      
+      if (config.hide_branding) {
+        styles += " .hfs_widgetIconBranding { display: none !important; }";
+        styles += " .lyr_sqCaption { margin-top: 0 !important; paddingTop: 0 !important; }";
+      }
+
+      if (config.hide_header) styles += " .lyr_miniStboardHeader { display: none !important; }";
+      if (config.hide_date_headline) styles += " .lyr_atomDateHeadline { display: none !important; }";
+
+      if (config.font_family) {
+        styles += ` body, * { font-family: ${config.font_family} !important; }`;
+      }
+      
+      const fontLink = config.font_url ? `<link rel="stylesheet" href="${config.font_url}">` : "";
+
       return `
         <!DOCTYPE html>
         <html lang="de">
         <head>
             <meta charset="utf-8">
-            <style>body { margin: 16px 0; background: transparent; }</style>
+            ${fontLink}
+            <style>${styles}</style>
             <script src="https://fahrplan.oebb.at/webapp/staticfiles/hafas-widget-core.1.0.0.js?language=${config.language || 'en_GB'}"></script>
         </head>
         <body>
